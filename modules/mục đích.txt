@@ -1,0 +1,1 @@
+Chứa các model tương ứng với các module, các file thực hiện các chức năng cơ bản của từng module

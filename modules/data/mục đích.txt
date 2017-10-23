@@ -1,0 +1,21 @@
+Các chức năng của module:
+    + Thêm dữ liệu kit: nhận dữ liệu pm, hud, temp
+    +
+DB Collection admin, admin_session
+
+Request sample
+- Thêm dữ liệu kit
+{
+    KitID: 'FAirNet_0000021',
+    Time: timestamp, // thời gian đo
+    Result: [
+        {
+            SensorID: 1,
+            Data: 27
+        },
+        {
+            SensorID: 2,
+            Data: 27
+        }
+    ]
+}

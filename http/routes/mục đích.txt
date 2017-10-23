@@ -1,0 +1,6 @@
+Các file trong route đóng vai trò như controller
+Nó
+    + Nhận request từ người dùng gửi lên qua express
+    + Kiểm tra, validation dữ liệu gửi lên
+    + Gọi sang các hàm tại các module tương ứng
+    + Trả về dữ liệu cho người dùng

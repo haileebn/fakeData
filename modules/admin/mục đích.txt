@@ -1,0 +1,16 @@
+Các chức năng của module:
+    + Đăng nhập: xác thực tài khoản quản trị, trả về session token
+    + Xem/Thêm/Sửa/Xóa các tài khoản quản trị viên
+DB Collection admin, admin_session
+- admin schema
+{
+    _id,
+    username,
+    password
+}
+- admin_sesion schema
+{
+    _id,
+    token,
+    : ObjectID()
+}

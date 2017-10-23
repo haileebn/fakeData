@@ -1,0 +1,11 @@
+{
+  "sensorthings": {
+    "url": "http://localhost/v1.0"
+  },
+  "mongodb": {
+    "host": "localhost",
+    "port": "27017",
+    "username": "admin",
+    "password": "fimo!54321"
+  }
+}
