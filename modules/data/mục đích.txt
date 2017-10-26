@@ -1,9 +1,12 @@
 Các chức năng của module:
     + Thêm dữ liệu kit: nhận dữ liệu pm, hud, temp
-    +
-DB Collection admin, admin_session
+    + Lấy dữ liệu thống kê của từng kit theo 24 giờ 1 ngày, 7 ngày 1 tuần, 12 tháng của năm
+DB Collection: Dữ liệu lấy trực tiếp từ sensorthings API
+Thống kê có thể tạo trên mongodb hoặc tìm cách tính toán từ request đến sensorthings api
 
 Request sample
+- Lấy dữ liệu kit: GET
+Response sample
 - Thêm dữ liệu kit
 {
     KitID: 'FAirNet_0000021',
@@ -18,4 +21,26 @@ Request sample
             Data: 27
         }
     ]
+}
+- Tổng hợp dữ liệu theo ngày
+{
+	"KitID": "FAirKit_000001",
+	"AnalysisType": "Day",
+	"Date": "19/10/2017",
+	"TimeZone": "7",
+	"StartHour": "10",
+	"PM2.5": [ 24, 22, 23, 24, 26, 32, 24, 23, 14, 56, 44, 12, 32, 22, 28, 29, 35, 18, 10, 27, 26, 38, 27, 11 ],
+	"Temperature": [ 26, 25, 26, 27, 27.5, 26, 25.5, 24, 24, 23, 23, 22, 26, 25, 26, 27, 27.5, 26, 25.5, 24, 24, 23, 23, 22 ],
+	"Humidity": [ 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92 ]
+}
+
+- Tổng hợp dữ liệu theo tháng
+{
+	"KitID": "FAirKit_000001",
+	"AnalysisType": "Week",
+	"Date": "19/10/2017",
+	"TimeZone": "7",
+	"PM2.5": [ 24, 22, 23, 24, 26, 32, 24 ],
+	"Temperature": [ 26, 25, 26, 27, 27.5, 26, 25.5 ],
+	"Humidity": [ 80, 81, 82, 83, 84, 85, 86 ]
 }

@@ -1,0 +1,5 @@
+Các chức năng của module:
+    + Thêm/đọc/sửa/xóa người dùng
+    + Thêm/đọc/xóa danh sách kit ưa thích của người dùng
+DB Collection user
+

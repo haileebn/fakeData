@@ -1,0 +1,47 @@
+Các chức năng của module:
+    + Thêm/đọc/sửa/xóa kit
+    + Lấy danh sách tất cả các kit kèm theo dữ liệu cuối cùng của kit
+DB Collection: lấy trực tiếp từ sensorthings API
+
+request sample
+- Thêm kit: POST /kit
+- Lấy thông tin 1 kit: GET /kit/:id
+- Sửa kit: PUT /kit
+{
+	"KitID": "FAirKit_000001",
+	"Name": "Fimo 518",
+	"Location": [21.038189,105.7827482]
+}
+- Xóa kit: DELETE /kit/:id
+- Lấy danh sách kit: /kit/all
+response example
+- Thông tin 1 kit:
+{
+	"KitID": "FAirKit_000001",
+	"Name": "Fimo 518",
+	"Location": [21.038189,105.7827482],
+	"Data": {
+		"CreatedTime": 1508383622,
+		"PM2.5": 22,
+		"Temperature": 23,
+		"Humidity": 65
+	},
+	"TotalView": 600
+}
+- Danh sách kit:
+[
+	{
+		"KitID": "FAirKit_000001",
+		"Name": "Fimo 518",
+		"Location": [21.038189,105.7827482],
+		"PM2.5": 22,
+		"CreatedTime": 1508383622
+	},
+	{
+		"KitID": "FAirKit_000001",
+		"Name": "Fimo 518",
+		"Location": [21.038189,105.7827482],
+		"PM2.5": 54,
+		"CreatedTime": 1508383620
+	},
+]
