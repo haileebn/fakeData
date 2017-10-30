@@ -1,6 +1,6 @@
 {
   "sensorthings": {
-    "url": "http://localhost/v1.0"
+    "url": "http://localhost:8080/v1.0"
   },
   "mongodb": {
     "host": "localhost",

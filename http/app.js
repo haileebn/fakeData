@@ -3,6 +3,7 @@
 // Truyền biến db connection vào
 
 const express = require('express');
+const bodyParser = require('body-parser')
 
 /**
  * Trả về biến app đã được cấu hình
@@ -11,11 +12,23 @@ const express = require('express');
  */
 
 function initServer(db){
-    const app = new express();
-//Khởi tạo
+	const app = new express();
+	const admin = require('./routes/admin')
+	const data = require('./routes/data')
+	const kit = require('./routes/kit')
+	const notification = require('./routes/notification')
+	const user = require('./routes/user')
 
-//Thêm route
-    return app;
+	app.locals.db = db
+	app.use(bodyParser.urlencoded({extended: true}))
+	app.use(bodyParser.json())
+	app.use('/admin', admin)
+	app.use('/data', data)
+	app.use('/kit', kit)
+	app.use('/notification', notification)
+	app.use('/user', user)
+	
+	return app;
 }
 
 
