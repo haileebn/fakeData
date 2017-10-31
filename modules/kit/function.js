@@ -1,6 +1,8 @@
-const RP = require('request-promise')
+//const RP = require('request-promise')
 //const URL = require(__base + 'config.json').sensorthings.url
-const URL = require('./../../config.json').sensorthings.url
+//const URL = require('./../../config.json').sensorthings.url
+const toDigits = require('./toDigits')
+const makeDatastreamsProperty = require('./makeDatastreamsProperty')
 
 module.exports = {
 	insertKit,
@@ -34,7 +36,8 @@ function insertKit(rp, url, obj) {
 				type: 'Point',
 				coordinates: Location
 			}
-		}]
+		}],
+		Datastreams: makeDatastreamsProperty(KitID)
 	}
 	return insertThing(rp, url, value)
 }
@@ -82,13 +85,6 @@ function deleteKit(rp, url, KitID) {
 
 function deleteThing(rp, url, thingID) {
 	return rp.delete(`${url}/Things(${thingID})`)
-}
-
-// convert 123 to '00...00123'
-function toDigits(value, option) {
-	let result = String(value)
-	while(result.length < option) result = '0' + result
-	return result
 }
 
 function getThingIDByKitID(rp, url, KitID) {

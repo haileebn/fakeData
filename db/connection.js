@@ -7,7 +7,11 @@
  * @return {Object} connection
  */
 function initDatabase(host = `localhost`, port = 27017, username = ``, password = ``){
-
+	const mongodb = require('mongodb')
+	const MongoClient = mongodb.MongoClient
+	let db_url = `mongodb://${username}:${password}`
+	db_url += `@${host}:${port}/mydb`
+	return MongoClient.connect(db_url)
 }
 
 module.exports = initDatabase;
