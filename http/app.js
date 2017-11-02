@@ -16,6 +16,7 @@ function initServer(db){
 	const admin = require('./routes/admin')
 	const data = require('./routes/data')
 	const kit = require('./routes/kit')
+	const analysis = require('./routes/analysis')
 	const notification = require('./routes/notification')
 	const user = require('./routes/user')
 
@@ -25,6 +26,7 @@ function initServer(db){
 	app.use('/admin', admin)
 	app.use('/data', data)
 	app.use('/kit', kit)
+	app.use('/analysis', analysis)
 	app.use('/notification', notification)
 	app.use('/user', user)
 	

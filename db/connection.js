@@ -11,7 +11,10 @@ function initDatabase(host = `localhost`, port = 27017, username = ``, password 
 	const MongoClient = mongodb.MongoClient
 	let db_url = `mongodb://${username}:${password}`
 	db_url += `@${host}:${port}/mydb`
-	return MongoClient.connect(db_url)
+	// return MongoClient.connect(db_url)
+    return MongoClient.connect("mongodb://localhost:27017/fairserver")
+
 }
+
 
 module.exports = initDatabase;
