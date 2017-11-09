@@ -65,7 +65,7 @@ router.delete('/:id', (req, res) => {
 module.exports = router
 //
 function fakeRecordOneKit(name) {
-    let PM = getRandomInt(40, 100),
+    let PM = getRandomInt(40, 500),
         temp = getRandomInt(20, 40),
         hud = getRandomInt(40, 80);
     let obj = {
