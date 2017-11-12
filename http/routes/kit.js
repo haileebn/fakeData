@@ -13,7 +13,7 @@ router.get('/all', (req, res) => {
             "KitID": "FAirKit_000001",
             "Name": "Fimo 518",
             "Location": [21.038189,105.7827482],
-            "PM2.5": getRandomInt(40, 100),
+            "PM2.5": getRandomInt(40, 500),
             "CreatedTime": 1508383622
         },
         {

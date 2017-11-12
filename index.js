@@ -10,7 +10,7 @@ connection(mongodb.host, mongodb.port, mongodb.username, mongodb.password)
 		const PORT = 2222
 		
 		app.get('/', (req, res) => {
-			res.sendFile(__dirname + "/index.html");
+			res.sendFile("home");
 		})
 
 		app.post('/', (req, res) => {
