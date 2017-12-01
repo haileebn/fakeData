@@ -7,7 +7,7 @@ global.__base = __dirname + '/'
 connection(mongodb.host, mongodb.port, mongodb.username, mongodb.password)
 	.then( db => {
 		const app = require('./http/app')(db)
-		const PORT = 2222
+		const PORT = 2223
 		
 		app.get('/', (req, res) => {
 			res.sendFile("home");
