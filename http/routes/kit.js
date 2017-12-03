@@ -8,7 +8,7 @@ const bounds= "21.53484700204879,108.29704284667969,21.80285818527671,108.621139
 const generateKit = "http://118.70.72.15:2223/kit/generate";
 const updateKit = "http://118.70.72.15:2223/kit/";
 const urlAllKit = `http://118.70.72.15:2223/kit/all`;
-
+const hostting = `http://118.70.72.15:2223`;
 
 const optionsLastRecord = function (x) {
     return {
@@ -31,6 +31,7 @@ const optionsAllKit = {
     },
     json: true // Automatically parses the JSON string in the response
 };
+
 
 const optionsGenerateKit = {
     method: 'POST',
@@ -56,6 +57,17 @@ const optionsUpdateKit = function (kitID, data) {
     };
 };
 
+const optionsLastOneKit = function (kitid) {
+    return {
+        method: 'GET',
+        uri: `${hostting}/kit/${kitid}`,
+        headers: {
+            'content-type': 'application/json; charset=utf-8', // Is set automatically
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+        },
+        json: true // Automatically parses the JSON string in the response
+    };
+};
 
 router.get('/all', (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -92,6 +104,22 @@ router.get('/all', (req, res) => {
     //     },
     // ];
 	// res.send({data});
+})
+
+router.get('/:id', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    const id = Number(req.params.id);
+    rp(optionsLastOneKit(id))
+        .then( result => {
+
+            // let temp2 = [];
+            // result.forEach((r, i) => {
+            //     if (r.Data !== undefined)
+            //         temp2.push(r);
+            //     if(i === result.length - 1)
+            res.send(result);
+            // });
+        });
 })
 
 module.exports = router
